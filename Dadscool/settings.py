@@ -14,7 +14,7 @@ from pathlib import Path
 import os.path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-*3$ik$9jxoe$w(rmf_as8fs&j%os^c=)u%-@iyqsagx(fmtdtt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bethapraveen.pythonanywhere.com']
+ALLOWED_HOSTS = ['bethapraveen.pythonanywhere.com',
+			'127.0.0.1',
+]
 
 
 # Application definition
@@ -78,9 +80,9 @@ WSGI_APPLICATION = 'Dadscool.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'Dadscool' / 'db.sqlite3',
     }
-}
+} 
 
 
 # Password validation
