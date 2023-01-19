@@ -1,10 +1,8 @@
-{% load staic %}
+{% load static %}
 {% for question in page_obj %}
     {# Each "contact" is a Contact model object. #}
     {{ question.question_text.url}}<br>
-<img class="img-responsive" src="{{ % static question.question_text.url %}}" />
-
-<img class="img-responsive" src="{{ question.question_text.image.url}}" />
+<img class="img-responsive" src="{{ question.question_text.url }}" />
 
     ...
 {% endfor %}
