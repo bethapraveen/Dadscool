@@ -3,6 +3,10 @@ from django.contrib import admin
 # Register your models here.
 
 from .models import PhysicsQuestion
+from .models import ChemistryQuestion
+from .models import BiologyQuestion
+from .models import MathsQuestion
+from .models import StatisticsQuestion
 
 
 
