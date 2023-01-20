@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('QuestionBank/', include('QuestionBank.urls')),
+    path('PhysicsQuestions/', include('QuestionBank.urls')),
     path('admin/', admin.site.urls),
 ]
 

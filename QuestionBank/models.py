@@ -15,6 +15,3 @@ class PhysicsQuestion(models.Model):
 	def answer_preview(self): #new
 		return mark_safe(f'<img src = "{self.question_answer.url}" />')
 
-
-
-   
