@@ -39,7 +39,7 @@ function showImage() {
 </tr>
 </table>
 <div id="container" style="width:1040;height:500">
-<img class="img-responsive" src="{{ question.question_text.url }}"  width="100%" height="100%" />
+<img class="img-responsive" src="{{ question.question_text.url }}"  width="100%"  style="height:auto"/>
 </div>
 <br/>
 <table width="500" border="1">
@@ -49,6 +49,6 @@ function showImage() {
 </table>
 <br/>
 <div id="container2" style="width:600;height:500">
-<img class="img-responsive" src="{{ question.question_answer.url }}"  width="100%"  id="answer" name="answer" style="visibility:hidden" width="700" height="400" />
+<img class="img-responsive" src="{{ question.question_answer.url }}"  width="100%"  id="answer" name="answer" style="visibility:hidden;height:auto" />
  </div>...
 {% endfor %}
