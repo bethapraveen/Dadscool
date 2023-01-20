@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'Dadscool.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'Dadscool' / 'db.sqlite3',
+        'NAME': BASE_DIR / 'Dadscool' / '.sqlite3',
     }
 } 
 

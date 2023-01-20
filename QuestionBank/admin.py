@@ -2,14 +2,14 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Question
+from .models import PhysicsQuestion
 
 
 
 fields = ['image_tag']
 readonly_fields = ['image_tag']
 
-class QuestionAdmin(admin.ModelAdmin): # new
-     readonly_fields = ['img_preview']
+class PhysicsQuestionAdmin(admin.ModelAdmin): # new
+     readonly_fields = ['img_preview','answer_preview']
 
-admin.site.register(Question,QuestionAdmin)
+admin.site.register(PhysicsQuestion,PhysicsQuestionAdmin)
