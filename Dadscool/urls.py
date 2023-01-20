@@ -21,9 +21,10 @@ from django.conf import settings #new
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('QuestionBank/', include('QuestionBank.urls')),
-    path('PhysicsQuestions/', include('QuestionBank.urls')),
-    path('admin/', admin.site.urls),
+	path('QuestionBank/', include('QuestionBank.urls')),
+	path('PhysicsQuestions/', include('QuestionBank.urls')),
+	path('', include('QuestionBank.urls')),
+    	path('admin/', admin.site.urls),
 ]
 
 urlpatterns += static( settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
