@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 
 def index(request):
 	
-	latest_question_list = list(PhysicsQuestion.objects.order_by('question_viewed_count','-pub_date')[:5])
+	latest_question_list = list(PhysicsQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
 	paginator=Paginator(latest_question_list,1)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
