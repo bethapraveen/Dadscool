@@ -6,10 +6,10 @@ from . import views
 urlpatterns = [
     
     path('PhysicsQuestions',views.index, name='index'),
-    path('ChemistryQuestions',views.index, name='chemistry'),
-    path('BiologyQuestions',views.index, name='biology'),
-    path('MathsQuestions',views.index, name='maths'),
-    path('StatisticsQuestions',views.index, name='statistics'),
+    path('ChemistryQuestions',views.chemistry, name='chemistry'),
+    path('BiologyQuestions',views.biology, name='biology'),
+    path('MathsQuestions',views.maths, name='maths'),
+    path('StatisticsQuestions',views.statistics, name='statistics'),
     path('',TemplateView.as_view(template_name='QuestionBank.html')), 
 ]
 

@@ -1,6 +1,11 @@
 from django.http import HttpResponse
 from django.views.generic import ListView
 from .models import PhysicsQuestion
+from .models import ChemistryQuestion
+from .models import BiologyQuestion
+from .models import MathsQuestion
+from .models import StatisticsQuestion
+
 from django.shortcuts import render
 from django.core.paginator import Paginator
 
