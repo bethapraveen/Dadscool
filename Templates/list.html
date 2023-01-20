@@ -11,7 +11,7 @@ function showImage() {
 
 <br/>
 
-<div class="pagination" align="middle">
+<div class="pagination" style="overflow-y: auto;" align="middle">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1&question={{question.question_id}}">&laquo; first</a>
@@ -26,7 +26,7 @@ function showImage() {
             <a href="?page={{ page_obj.next_page_number }}&question={{question.question_id}}">next</a>
             <a href="?page={{ page_obj.paginator.num_pages }}&question={{question.question_id}}">last &raquo;</a>
         {% endif %}
-
+<tab/>
 <a href="#" onclick="javascript:showImage()">Show Answer</a>
  
     </span>
@@ -38,7 +38,7 @@ function showImage() {
             <th bgcolor="peech">Question</th>
 </tr>
 </table>
-<div id="container" style="width:900;height:500">
+<div id="container" style="width:900;height:500;overflow-y: auto;">
 <img class="img-responsive" src="{{ question.question_text.url }}"  width="100%"  style="height:auto"/>
 </div>
 <br/>
@@ -48,7 +48,7 @@ function showImage() {
 </tr>
 </table>
 <br/>
-<div id="container2" style="width:600;height:500">
+<div id="container2" style="width:600;height:500;overflow-y: auto;>
 <img class="img-responsive" src="{{ question.question_answer.url }}"  width="100%"  id="answer" name="answer" style="visibility:hidden;height:auto" />
  </div>...
 {% endfor %}
