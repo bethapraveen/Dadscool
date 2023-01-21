@@ -1,0 +1,67 @@
+<script type="text/javascript">
+function showImage() {
+    var divi = document.getElementById("container2");
+    divi.style.visibility="visible";
+}
+</script>
+
+{% load static %}
+{% for question in page_obj %}
+    {# Each "contact" is a Contact model object. #}
+
+<br/>
+<a href="/QuestionBank/">&laquo; Home</a>
+<div class="pagination" style="overflow-y: auto;" align="middle">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1&question={{question.question_id}}">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}&question={{question.question_id}}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} 
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&question={{question.question_id}}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}&question={{question.question_id}}">last &raquo;</a>
+        {% endif %}
+
+<a href="javascript:showImage()">Show Answer</a>
+ 
+    </span>
+</div>
+   
+<br/>
+<table>
+<tr><td>
+<table width="900" border="1">
+        <tr>
+            <th bgcolor="peech">Question</th>
+</tr>
+</table>
+</td></tr>
+<tr><td>
+<div id="container" style="width:600;height:300;overflow-y: auto;">
+<img class="img-responsive" src="{{ question.question_text.url }}"  width="100%"  style="height:auto"/>
+</div>
+
+</td></tr>
+<tr><td style="text-align:right">
+<a href="javascript:showImage()">Show Answer</a>
+<br/>
+</td></tr>
+<tr><td>
+<table width="900" border="1">
+        <tr>
+            <th bgcolor="yellow">Answer</th>
+</tr>
+</table>
+</td></tr>
+<tr><td>
+<div  id="container2" style="visibility:hidden;width:600;height:300;overflow-y:auto;">
+<img class="img-responsive" src="{{ question.question_answer.url }}"  width="100%"  style="height:auto" />
+ </div>
+</td></tr>
+<tr><td></table>
+{% endfor %}

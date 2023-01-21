@@ -70,7 +70,7 @@ def maths(request):
 		question.question_viewed_count= question.question_viewed_count+1
 		question.save(update_fields=['question_viewed_count'])
 
-	return render(request, 'list.html', {'page_obj': page_obj})
+	return render(request, 'mathsList.html', {'page_obj': page_obj})
 
 def statistics(request):
 	
