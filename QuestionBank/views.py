@@ -91,7 +91,7 @@ def RandomQuestion(request):
 	QuestionBank=random.randint(1,5)
 	if QuestionBank==1:
 		number_of_records = PhysicsQuestion.objects.count()
-		random_index = random.randint(1,number_of_records)
+		random_index = random.randint(4,4+number_of_records-1)
 		latest_question_list = PhysicsQuestion.objects.get(pk = random_index)
 	elif QuestionBank==2:
 		number_of_records = ChemistryQuestion.objects.count()
@@ -99,15 +99,15 @@ def RandomQuestion(request):
 		latest_question_list = ChemistryQuestion.objects.get(pk = random_index)
 	elif QuestionBank==3:
 		number_of_records = BiologyQuestion.objects.count()
-		random_index = random.randint(1,number_of_records)
+		random_index = random.randint(2,2+number_of_records-1)
 		latest_question_list = BiologyQuestion.objects.get(pk = random_index)
 	elif QuestionBank==4:
 		number_of_records = MathsQuestion.objects.count()
-		random_index = random.randint(1,number_of_records)
+		random_index = random.randint(7,7 + number_of_records -1)
 		latest_question_list = MathsQuestion.objects.get(pk = random_index)
 	elif QuestionBank==5:
 		number_of_records = StatisticsQuestion.objects.count()
-		random_index = random.randint(1,number_of_records)
+		random_index = random.randint(4,4+number_of_records-1)
 		latest_question_list = StatisticsQuestion.objects.get(pk = random_index)
 
 	paginator=Paginator(latest_question_list,1)
