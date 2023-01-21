@@ -107,7 +107,7 @@ def RandomQuestion(request):
 		latest_question_list = MathsQuestion.objects.get(pk = random_index)
 	elif QuestionBank==5:
 		number_of_records = StatisticsQuestion.objects.count()
-		rand_index = random.randint(4,6)
+		random_index = random.randint(4,4+number_of_records-1)
 		latest_question_list = StatisticsQuestion.objects.get(pk = rand_index)
 
 	paginator=Paginator(latest_question_list,1)
