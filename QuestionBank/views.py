@@ -88,7 +88,7 @@ def statistics(request):
 	return render(request, 'list.html', {'page_obj': page_obj})
 
 def RandomQuestion(request):
-	QuestionBank=5#random.randint(1,5)
+	QuestionBank=random.randint(1,5)
 	if QuestionBank==1:
 		number_of_records = PhysicsQuestion.objects.count()
 		random_index = random.randint(4,4+number_of_records-1)
