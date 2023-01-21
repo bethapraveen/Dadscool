@@ -11,5 +11,6 @@ urlpatterns = [
     path('MathsQuestions',views.maths, name='maths'),
     path('StatisticsQuestions',views.statistics, name='statistics'),
     path('',TemplateView.as_view(template_name='QuestionBank.html')), 
+    path('RandomQuestion',views.RandomQuestion, name='random'),	
 ]
 
