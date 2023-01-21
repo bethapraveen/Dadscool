@@ -108,7 +108,7 @@ def RandomQuestion(request):
 	elif QuestionBank==5:
 		number_of_records = StatisticsQuestion.objects.count()
 		random_index = random.randint(4,4+number_of_records-1)
-		latest_question_list = StatisticsQuestion.objects.get(pk = rand_index)
+		latest_question_list = StatisticsQuestion.objects.get(pk = random_index)
 
 	paginator=Paginator(latest_question_list,1)
 	#page_number = request.GET.get('page')
