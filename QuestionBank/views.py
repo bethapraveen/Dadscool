@@ -103,7 +103,7 @@ def RandomQuestion(request):
 		latest_question_list = BiologyQuestion.objects.get(pk = random_index)
 	elif QuestionBank==4:
 		number_of_records = MathsQuestion.objects.count()
-		random_index = random.randint(7,7+number_of_records)
+		random_index = random.randint(1,number_of_records)
 		latest_question_list = MathsQuestion.objects.get(pk = random_index)
 	elif QuestionBank==5:
 		number_of_records = StatisticsQuestion.objects.count()
