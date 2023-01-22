@@ -67,7 +67,7 @@ def statistics(request):
 	page_obj = paginator.get_page(page_number)
 	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
 	page_obj[0].save(update_fields=['question_viewed_count_new'])	
-	return render(request, 'list.html', {'page_obj': page_obj})
+	return render(request, 'mathslist.html', {'page_obj': page_obj})
 
 def RandomQuestion(request):
 	QuestionBank=random.randint(1,5)
