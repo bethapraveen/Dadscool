@@ -14,8 +14,8 @@ function showImage() {
 <div class="pagination" style="overflow-y: auto;" align="middle">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1&question={{question.question_id}}">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}&question={{question.question_id}}">previous</a>
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
         {% endif %}
 
         <span class="current">
@@ -23,8 +23,8 @@ function showImage() {
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}&question={{question.question_id}}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}&question={{question.question_id}}">last &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
 
 <a href="javascript:showImage()">Show Answer</a>

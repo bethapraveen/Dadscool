@@ -6,85 +6,67 @@ from .models import BiologyQuestion
 from .models import MathsQuestion
 from .models import StatisticsQuestion
 import random
+from django.db.models import F
 
 from django.shortcuts import render
 from django.core.paginator import Paginator
 
 
 def index(request):
-	
+	if request.GET.get('page') == None:
+		PhysicsQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
 	latest_question_list = list(PhysicsQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
 	paginator=Paginator(latest_question_list,1)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
-
-	if request.GET.get('question') != None:
-		question = PhysicsQuestion.objects.get(question_id=request.GET.get('question'))
-		#question.update(question_viewed_count, question_viewed_count+1)
-		question.question_viewed_count= question.question_viewed_count+1
-		question.save(update_fields=['question_viewed_count'])
-
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
 	return render(request, 'list.html', {'page_obj': page_obj})
 
 def chemistry(request):
+
+	if request.GET.get('page') == None:
+		ChemistryQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
 	
 	latest_question_list = list(ChemistryQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
 	paginator=Paginator(latest_question_list,1)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
-
-	if request.GET.get('question') != None:
-		question = ChemistryQuestion.objects.get(question_id=request.GET.get('question'))
-		#question.update(question_viewed_count, question_viewed_count+1)
-		question.question_viewed_count= question.question_viewed_count+1
-		question.save(update_fields=['question_viewed_count'])
-
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
 	return render(request, 'list.html', {'page_obj': page_obj})
 
-
 def biology(request):
-	
+	if request.GET.get('page') == None:
+		BiologyQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))	
 	latest_question_list = list(BiologyQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
 	paginator=Paginator(latest_question_list,1)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
-
-	if request.GET.get('question') != None:
-		question = BiologyQuestion.objects.get(question_id=request.GET.get('question'))
-		#question.update(question_viewed_count, question_viewed_count+1)
-		question.question_viewed_count= question.question_viewed_count+1
-		question.save(update_fields=['question_viewed_count'])
-
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
 	return render(request, 'list.html', {'page_obj': page_obj})
 
 def maths(request):
-	
+	if request.GET.get('page') == None:
+		MathsQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
 	latest_question_list = list(MathsQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
 	paginator=Paginator(latest_question_list,1)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
-
-	if request.GET.get('question') != None:
-		question = MathsQuestion.objects.get(question_id=request.GET.get('question'))
-		#question.update(question_viewed_count, question_viewed_count+1)
-		question.question_viewed_count= question.question_viewed_count+1
-		question.save(update_fields=['question_viewed_count'])
-
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
 	return render(request, 'mathsList.html', {'page_obj': page_obj})
 
 def statistics(request):
-	
+	if request.GET.get('page') == None:
+		StatisticsQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
 	latest_question_list = list(StatisticsQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
 	paginator=Paginator(latest_question_list,1)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
-
-	if request.GET.get('question') != None:
-		question = StatisticsQuestion.objects.get(question_id=request.GET.get('question'))
-		#question.update(question_viewed_count, question_viewed_count+1)
-		question.question_viewed_count= question.question_viewed_count+1
-		question.save(update_fields=['question_viewed_count'])
-
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
 	return render(request, 'list.html', {'page_obj': page_obj})
 
 def RandomQuestion(request):
@@ -111,9 +93,9 @@ def RandomQuestion(request):
 		latest_question_list = StatisticsQuestion.objects.get(pk = random_index)
 
 	paginator=Paginator(latest_question_list,1)
-	#page_number = request.GET.get('page')
-	page_obj = latest_question_list  #paginator.get_page(page_number)
-
+	page_obj = latest_question_list 
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])
 	
 	return render(request, 'randomQuestion.html', {'page_obj': page_obj})
 

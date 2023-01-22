@@ -7,7 +7,8 @@ from django.utils.html import mark_safe
 
 class PhysicsQuestion(models.Model):
 	question_text = models.ImageField(upload_to='PhysicsQuestions')
-	question_viewed_count=models.IntegerField(default='0')	
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')	
 	question_id=models.AutoField(primary_key=True)
 	pub_date = models.DateTimeField('date published',default=timezone.now)
 	question_answer = models.ImageField(upload_to='PhysicsQuestions')
@@ -18,7 +19,8 @@ class PhysicsQuestion(models.Model):
 
 class ChemistryQuestion(models.Model):
 	question_text = models.ImageField(upload_to='ChemistryQuestions')
-	question_viewed_count=models.IntegerField(default='0')	
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')		
 	question_id=models.AutoField(primary_key=True)
 	pub_date = models.DateTimeField('date published',default=timezone.now)
 	question_answer = models.ImageField(upload_to='ChemistryQuestions')
@@ -29,7 +31,8 @@ class ChemistryQuestion(models.Model):
 
 class BiologyQuestion(models.Model):
 	question_text = models.ImageField(upload_to='BiologyQuestions')
-	question_viewed_count=models.IntegerField(default='0')	
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')		
 	question_id=models.AutoField(primary_key=True)
 	pub_date = models.DateTimeField('date published',default=timezone.now)
 	question_answer = models.ImageField(upload_to='BiologyQuestions')
@@ -40,7 +43,8 @@ class BiologyQuestion(models.Model):
 
 class MathsQuestion(models.Model):
 	question_text = models.ImageField(upload_to='MathsQuestions')
-	question_viewed_count=models.IntegerField(default='0')	
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')		
 	question_id=models.AutoField(primary_key=True)
 	pub_date = models.DateTimeField('date published',default=timezone.now)
 	question_answer = models.ImageField(upload_to='MathsQuestions')
@@ -51,7 +55,8 @@ class MathsQuestion(models.Model):
 
 class StatisticsQuestion(models.Model):
 	question_text = models.ImageField(upload_to='StatisticsQuestions')
-	question_viewed_count=models.IntegerField(default='0')	
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')		
 	question_id=models.AutoField(primary_key=True)
 	pub_date = models.DateTimeField('date published',default=timezone.now)
 	question_answer = models.ImageField(upload_to='StatisticsQuestions')
