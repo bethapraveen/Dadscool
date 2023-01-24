@@ -94,8 +94,8 @@ def RandomQuestion(request):
 
 	paginator=Paginator(latest_question_list,1)
 	page_obj = latest_question_list 
-	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
-	page_obj[0].save(update_fields=['question_viewed_count_new'])
+	page_obj.question_viewed_count_new= page_obj.question_viewed_count_new+1
+	page_obj.save(update_fields=['question_viewed_count_new'])
 	
 	return render(request, 'randomQuestion.html', {'page_obj': page_obj})
 
