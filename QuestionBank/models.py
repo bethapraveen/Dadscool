@@ -65,3 +65,41 @@ class StatisticsQuestion(models.Model):
 	def answer_preview(self): #new
 		return mark_safe(f'<img src = "{self.question_answer.url}" />')
 
+
+class PhysicsPAEQuestion(models.Model):
+	question_text = models.ImageField(upload_to='PhysicsPAEQuestions')
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')	
+	question_id=models.AutoField(primary_key=True)
+	pub_date = models.DateTimeField('date published',default=timezone.now)
+	question_answer = models.ImageField(upload_to='PhysicsPAEQuestions')
+	def img_preview(self): #new
+		return mark_safe(f'<img src = "{self.question_text.url}" />')
+	def answer_preview(self): #new
+		return mark_safe(f'<img src = "{self.question_answer.url}" />')
+
+class ChemistryPAEQuestion(models.Model):
+	question_text = models.ImageField(upload_to='ChemistryPAEQuestions')
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')		
+	question_id=models.AutoField(primary_key=True)
+	pub_date = models.DateTimeField('date published',default=timezone.now)
+	question_answer = models.ImageField(upload_to='ChemistryPAEQuestions')
+	def img_preview(self): #new
+		return mark_safe(f'<img src = "{self.question_text.url}" />')
+	def answer_preview(self): #new
+		return mark_safe(f'<img src = "{self.question_answer.url}" />')
+
+class BiologyPAEQuestion(models.Model):
+	question_text = models.ImageField(upload_to='BiologyPAEQuestions')
+	question_viewed_count=models.IntegerField(default='0')
+	question_viewed_count_new=models.IntegerField(default='0')		
+	question_id=models.AutoField(primary_key=True)
+	pub_date = models.DateTimeField('date published',default=timezone.now)
+	question_answer = models.ImageField(upload_to='BiologyPAEQuestions')
+	def img_preview(self): #new
+		return mark_safe(f'<img src = "{self.question_text.url}" />')
+	def answer_preview(self): #new
+		return mark_safe(f'<img src = "{self.question_answer.url}" />')
+
+

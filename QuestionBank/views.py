@@ -47,6 +47,8 @@ def biology(request):
 	page_obj[0].save(update_fields=['question_viewed_count_new'])	
 	return render(request, 'list.html', {'page_obj': page_obj})
 
+
+
 def maths(request):
 	if request.GET.get('page') == None:
 		MathsQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
@@ -104,4 +106,39 @@ def RandomQuestion(request):
 	
 	return render(request, 'randomQuestion.html', {'page_obj': page_obj})
 
+
+def physicPAE(request):
+	if request.GET.get('page') == None:
+		PhysicsPAEQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
+	latest_question_list = list(PhysicsPAEQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
+	paginator=Paginator(latest_question_list,1)
+	page_number = request.GET.get('page')
+	page_obj = paginator.get_page(page_number)
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
+	return render(request, 'list.html', {'page_obj': page_obj})
+
+def chemistryPAE(request):
+
+	if request.GET.get('page') == None:
+		ChemistryPAEQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
+	
+	latest_question_list = list(ChemistryPAEQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
+	paginator=Paginator(latest_question_list,1)
+	page_number = request.GET.get('page')
+	page_obj = paginator.get_page(page_number)
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
+	return render(request, 'list.html', {'page_obj': page_obj})
+
+def biologyPAE(request):
+	if request.GET.get('page') == None:
+		BiologyPAEQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))	
+	latest_question_list = list(BiologyPAEQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
+	paginator=Paginator(latest_question_list,1)
+	page_number = request.GET.get('page')
+	page_obj = paginator.get_page(page_number)
+	page_obj[0].question_viewed_count_new= page_obj[0].question_viewed_count_new+1
+	page_obj[0].save(update_fields=['question_viewed_count_new'])	
+	return render(request, 'list.html', {'page_obj': page_obj})
 
