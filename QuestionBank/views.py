@@ -107,7 +107,7 @@ def RandomQuestion(request):
 	return render(request, 'randomQuestion.html', {'page_obj': page_obj})
 
 
-def physicPAE(request):
+def physicsPAE(request):
 	if request.GET.get('page') == None:
 		PhysicsPAEQuestion.objects.update(question_viewed_count=F('question_viewed_count_new'))
 	latest_question_list = list(PhysicsPAEQuestion.objects.order_by('question_viewed_count','-pub_date')[:10])
