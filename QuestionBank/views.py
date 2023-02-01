@@ -3,6 +3,9 @@ from django.views.generic import ListView
 from .models import PhysicsQuestion
 from .models import ChemistryQuestion
 from .models import BiologyQuestion
+from .models import PhysicsPAEQuestion
+from .models import ChemistryPAEQuestion
+from .models import BiologyPAEQuestion
 from .models import MathsQuestion
 from .models import StatisticsQuestion
 import random
